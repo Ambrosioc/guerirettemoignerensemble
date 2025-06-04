@@ -26,7 +26,7 @@ export default function PaymentForm({ productId, amount, onSuccess, onError }: P
             const supabase = createClient();
 
             // 1. Créer ou récupérer le client
-            const { data: existingClient, error: clientError } = await supabase
+            const { data: existingClient } = await supabase
                 .from('clients')
                 .select()
                 .eq('email', formData.email)
@@ -65,7 +65,7 @@ export default function PaymentForm({ productId, amount, onSuccess, onError }: P
 
             if (!response.ok) throw new Error('Failed to create checkout');
 
-            const { checkoutId, checkoutRef } = await response.json();
+            const { checkoutRef } = await response.json();
 
             // 3. Créer l'entrée de paiement
             const { error: paymentError } = await supabase
@@ -80,28 +80,8 @@ export default function PaymentForm({ productId, amount, onSuccess, onError }: P
 
             if (paymentError) throw paymentError;
 
-            // 4. Initialiser le widget SumUp
-            const SumUpCard = await import('@sumup/card');
-            SumUpCard.mount({
-                id: 'sumup-card',
-                checkoutId,
-                onResponse: async (type: string, payload: any) => {
-                    if (type === 'success') {
-                        // Mettre à jour le statut du paiement
-                        await supabase
-                            .from('payments')
-                            .update({ status: 'SUCCESSFUL' })
-                            .eq('checkout_reference', checkoutRef);
-                        onSuccess();
-                    } else {
-                        await supabase
-                            .from('payments')
-                            .update({ status: 'FAILED' })
-                            .eq('checkout_reference', checkoutRef);
-                        onError('Payment failed');
-                    }
-                },
-            });
+            // Appeler onSuccess après la création du paiement
+            onSuccess();
         } catch (error) {
             onError(error instanceof Error ? error.message : 'An error occurred');
         } finally {
