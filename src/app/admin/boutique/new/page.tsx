@@ -1,6 +1,6 @@
 'use client';
 
-import ProductForm from '@/components/admin/ProductForm';
+import ProductForm, { ProductFormValues } from '@/components/admin/ProductForm';
 import {
     Card,
     CardContent,
@@ -8,18 +8,6 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import { z } from 'zod';
-
-const productSchema = z.object({
-    title: z.string(),
-    description: z.string(),
-    price: z.string(),
-    stock: z.string(),
-    isbn: z.string().optional(),
-    themes: z.string().optional(),
-});
-
-type ProductFormValues = z.infer<typeof productSchema>;
 
 export default function NewProductPage() {
     const handleSubmit = async (data: ProductFormValues) => {

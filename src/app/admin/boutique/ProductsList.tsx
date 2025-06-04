@@ -10,9 +10,10 @@ import {
     TableHeader,
     TableRow,
 } from '@/components/ui/table';
+import { createClient } from '@/lib/supabase/client';
 import { Edit2, Eye, EyeOff, Trash2 } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Product {
     id: string;
@@ -27,8 +28,25 @@ export default function ProductsList() {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // TODO: Implement product fetching and management
-    // This is just a placeholder for now
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const supabase = createClient();
+                const { data } = await supabase
+                    .from('products')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                setProducts(data || []);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
 
     if (loading) {
         return (

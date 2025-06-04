@@ -18,7 +18,7 @@ export default function Navbar() {
 
     const [navLinks, setNavLinks] = useState([
         { path: '/', label: 'Accueil' },
-        { path: '/biography', label: 'Biographie' },
+        { path: '/biographie', label: 'Biographie' },
         { path: '/Oeuvres', label: 'Oeuvres' },
         { path: '/contact', label: 'Contact' },
         { path: '/shop', label: 'Boutique' },
@@ -49,7 +49,7 @@ export default function Navbar() {
             } else {
                 setNavLinks([
                     { path: '/', label: 'Accueil' },
-                    { path: '/biography', label: 'Biographie' },
+                    { path: '/biographie', label: 'Biographie' },
                     { path: '/oeuvres', label: 'Oeuvres' },
                     { path: '/contact', label: 'Contact' },
                     { path: '/shop', label: 'Boutique' },

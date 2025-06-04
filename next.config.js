@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images.pexels.com'],
+    domains: [
+      'images.pexels.com',
+      '127.0.0.1',
+      'localhost'
+    ],
   },
 }
 

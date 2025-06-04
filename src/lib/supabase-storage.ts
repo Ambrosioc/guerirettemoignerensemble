@@ -12,7 +12,7 @@ export async function uploadImage(file: File) {
         const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
 
         // Upload the file
-        const { data, error } = await supabase.storage
+        const { error } = await supabase.storage
             .from(STORAGE_BUCKET)
             .upload(fileName, file);
 

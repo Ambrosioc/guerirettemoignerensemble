@@ -25,7 +25,7 @@ const productSchema = z.object({
     themes: z.string().optional(),
 });
 
-type ProductFormValues = z.infer<typeof productSchema>;
+export type ProductFormValues = z.infer<typeof productSchema>;
 
 interface ProductFormProps {
     initialData?: ProductFormValues;

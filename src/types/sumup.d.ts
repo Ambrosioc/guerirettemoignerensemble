@@ -1,7 +1,13 @@
 interface SumUpCardResponse {
     code: string;
     message: string;
-    [key: string]: any;
+    status?: 'success' | 'error';
+    transaction_id?: string;
+    transaction_code?: string;
+    payment_type?: string;
+    amount?: number;
+    currency?: string;
+    timestamp?: string;
 }
 
 interface SumUpCardConfig {
