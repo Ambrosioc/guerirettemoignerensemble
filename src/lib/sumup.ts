@@ -9,7 +9,7 @@ class SumUpAPI {
     constructor() {
         const apiKey = process.env.SUMUP_API_KEY;
         const apiUrl = process.env.SUMUP_API_URL || 'https://api.sumup.com/v0.1';
-        const merchantCode = process.env.MERCHANT_CODE;
+        const merchantCode = process.env.SUMUP_MERCHANT_CODE;
 
         if (!apiKey) throw new Error('SUMUP_API_KEY is not configured');
         if (!merchantCode) throw new Error('MERCHANT_CODE is not configured');
