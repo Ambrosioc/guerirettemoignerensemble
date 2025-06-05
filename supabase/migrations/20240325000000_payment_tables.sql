@@ -1,3 +1,8 @@
+DROP TABLE IF EXISTS clients CASCADE;
+DROP TABLE IF EXISTS payments CASCADE;
+
+
+
 -- Create clients table
 CREATE TABLE clients (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -17,7 +22,7 @@ CREATE TABLE payments (
     amount DECIMAL(10,2) NOT NULL,
     product_id INTEGER NOT NULL,
     client_id UUID NOT NULL REFERENCES clients(id),
-    status TEXT NOT NULL DEFAULT 'pending',
+    status TEXT NOT NULL DEFAULT 'PENDING',
     transaction_id TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),

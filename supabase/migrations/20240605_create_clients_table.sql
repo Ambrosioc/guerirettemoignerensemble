@@ -1,7 +1,6 @@
 -- Drop existing types
 DROP TYPE IF EXISTS payment_status CASCADE;
 
-DROP TABLE IF EXISTS clients CASCADE;
 
 -- Recreate payment_status type
 CREATE TYPE payment_status AS ENUM ('PENDING', 'SUCCESSFUL', 'FAILED');

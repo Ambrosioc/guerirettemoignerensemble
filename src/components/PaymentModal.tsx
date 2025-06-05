@@ -127,7 +127,7 @@ export default function PaymentModal({ isOpen, onClose, book }: PaymentModalProp
                     amount,
                     product_id: book.id,
                     client_id: clientData.id,
-                    status: 'pending'
+                    status: 'PENDING'
                 })
                 .select()
                 .single();
@@ -171,7 +171,7 @@ export default function PaymentModal({ isOpen, onClose, book }: PaymentModalProp
             const { error: updateError } = await supabase
                 .from('payments')
                 .update({
-                    status: 'completed',
+                    status: 'SUCCESSFUL',
                     transaction_id: transactionId,
                     transaction_code: response.transaction_code || null
                 })

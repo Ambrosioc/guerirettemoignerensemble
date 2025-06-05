@@ -12,24 +12,24 @@ interface Payment {
     checkout_reference: string;
     transaction_code: string | null;
     amount: number;
-    status: 'completed' | 'pending' | 'cancelled' | 'failed';
+    status: 'SUCCESSFUL' | 'PENDING' | 'CANCELLED' | 'FAILED';
     created_at: string;
 }
 
 const statusConfig = {
-    completed: {
+    SUCCESSFUL: {
         label: 'Payé',
         className: 'bg-green-100 text-green-800'
     },
-    pending: {
+    PENDING: {
         label: 'En attente',
         className: 'bg-yellow-100 text-yellow-800'
     },
-    cancelled: {
+    CANCELLED: {
         label: 'Annulé',
         className: 'bg-red-100 text-red-800'
     },
-    failed: {
+    FAILED: {
         label: 'Échoué',
         className: 'bg-red-100 text-red-800'
     }
