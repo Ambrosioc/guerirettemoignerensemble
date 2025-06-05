@@ -46,7 +46,7 @@ export default function Contact() {
               <FadeIn delay={0.2}>
                 <p className="text-xl text-gray-600">
                   Une question ? Une proposition ? N&apos;hésitez pas à me contacter.
-                  Je serai ravie d&apos;échanger avec vous.
+                  Je serais ravie d&apos;échanger avec vous.
                 </p>
               </FadeIn>
             </div>
