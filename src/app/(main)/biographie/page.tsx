@@ -74,7 +74,7 @@ export default function Biography() {
                                                 whileHover={{ scale: 1.05 }}
                                             >
                                                 <BookOpen size={24} />
-                                                <span className="font-serif text-xl">Auteure & Éditrice</span>
+                                                <h2 className="font-serif text-xl">Auteure & Éditrice</h2>
                                             </motion.div>
                                             <p className="text-xl italic text-gray-600">
                                                 &ldquo;L&apos;écriture est devenue ma maison, mon abri, ma thérapie.&rdquo;
@@ -92,15 +92,15 @@ export default function Biography() {
                             <div className="prose prose-lg max-w-none">
                                 <FadeIn delay={0.3}>
                                     <p>
-                                        Elle s&apos;attèle alors à écrire, consignant sur papier les événements, les situations
+                                        Elle s&apos;attèle alors à écrire, consignant sur papier, les événements, les situations
                                         rencontrées et les émotions qui l&apos;habitent. Elle débute par la poésie et les chants,
                                         puis évolue naturellement vers l&apos;écriture de récits, de mémoires et de chroniques,
                                         inspirés de son environnement.
                                     </p>
                                 </FadeIn>
-
+                                <br />
                                 <FadeIn delay={0.4}>
-                                    <h2 className="font-serif">Une Vocation Qui Prend Forme</h2>
+                                    <h2 className="font-serif text-lg font-semibold">Une Vocation Qui Prend Forme</h2>
                                     <p>
                                         Ses thèmes de prédilection gravitent autour de la condition humaine, la quête de sens,
                                         et le rôle de l&apos;humain sur terre, une exploration qui fait vibrer son âme. En 2019,
@@ -109,26 +109,24 @@ export default function Biography() {
                                         la philosophie quotidienne.
                                     </p>
                                 </FadeIn>
-
+                                <br />
                                 <FadeIn delay={0.5}>
-                                    <h2 className="font-serif">L&apos;Écriture Comme Thérapie</h2>
+                                    <h2 className="font-serif text-lg font-semibold">L&apos;Écriture Comme Thérapie</h2>
                                     <p>
                                         Très vite, elle réalise que les mots sont devenus sa maison, son abri, mais aussi sa
-                                        thérapie. L&apos;écriture n&apos;est plus un simple exutoire : c&apos;est un moyen de guérison. Elle
+                                        thérapie. L&apos;écriture n&apos;est plus qu'un simple exutoire : c&apos;est un moyen de guérison. Elle
                                         souhaite dès lors devenir un canal de réconfort et d&apos;espoir pour celles et ceux qui
                                         cherchent la paix intérieure.
                                     </p>
                                 </FadeIn>
-
+                                <br />
                                 <FadeIn delay={0.6}>
-                                    <h2 className="font-serif">Une Quête d&apos;Excellence</h2>
+                                    <h2 className="font-serif text-lg font-semibold">Une Quête d&apos;Excellence</h2>
                                     <p>
-                                        Dans cette optique d&apos;amélioration continue, elle décide de se former pour mieux maîtriser
-                                        la langue française, et affiner sa plume. Cette démarche témoigne de son engagement à
-                                        offrir le meilleur à ses lecteurs.
+                                        Dans cette optique d&apos;amélioration continue, elle décide de se former pour mieux maîtriser la langue française et affiner sa plume. Cette démarche témoigne de son engagement à offrir le meilleur à ses lecteurs.
                                     </p>
                                 </FadeIn>
-
+                                <br />
                                 <FadeIn delay={0.7}>
                                     <div className="my-12 text-center">
                                         <motion.div

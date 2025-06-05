@@ -31,8 +31,8 @@ const books: Book[] = [
         publishDate: "24 septembre 2019",
         isbn: "979-1-097670-40-5",
         price: "12,00 €",
-        description: "Un livre introspectif mêlant réflexions, philosophie, psychologie du quotidien et spiritualité. L&apos;auteure invite le lecteur à reconsidérer sa condition humaine, à guérir intérieurement et à retrouver le sens de son existence.",
-        excerpt: "Au-delà de toutes les divergences et inégalités [...] sera t-elle aussi lourde que la pesanteur de l&apos;atmosphère?",
+        description: "Un livre introspectif mêlant réflexions, philosophie, psychologie du quotidien et spiritualité. L'auteure invite le lecteur à reconsidérer sa condition humaine, à guérir intérieurement et à retrouver le sens de son existence.",
+        excerpt: "Au-delà de toutes les divergences et inégalités [...] sera t-elle aussi lourde que la pesanteur de l'atmosphère?",
         themes: ["Perplexité existentielle", "Développement personnel", "Condition humaine", "Spiritualité"],
         type: "Essai / Réflexion",
         coverImage: "/8C4AD283-39BE-43C0-9EBF-CAD6A39BD23B_4_5005_c.jpeg",
@@ -44,14 +44,14 @@ const books: Book[] = [
         publishDate: "2025",
         isbn: "979-1-097670-40-5",
         price: "17,00 €",
-        description: "Un témoignage poignant sur la transformation à travers l&apos;épreuve. Suite à la perte de sa mère, l&apos;autrice nous livre son parcours de reconstruction, où la foi devient le pilier central de sa guérison. Une œuvre de résilience qui donne voix à ceux qui traversent des périodes d&apos;obscurité.",
-        excerpt: "Il est temps pour moi de briller et de ne plus me cacher. [...] Le changement commence par une prise de conscience, un renoncement aux choses anciennes et le revêtement d&apos;un nouvel état d&apos;esprit : c&apos;est par la suite que vient l&apos;embrasement.",
+        description: "Un témoignage poignant sur la transformation à travers l'épreuve. Suite à la perte de sa mère, l'autrice nous livre son parcours de reconstruction, où la foi devient le pilier central de sa guérison. Une œuvre de résilience qui donne voix à ceux qui traversent des périodes d'obscurité.",
+        excerpt: "Il est temps pour moi de briller et de ne plus me cacher. [...] Le changement commence par une prise de conscience, un renoncement aux choses anciennes et le revêtement d'un nouvel état d'esprit : c'est par la suite que vient l'embrasement.",
         themes: ["Résilience & foi", "Éveil personnel", "Transformation intérieure", "Renaissance spirituelle"],
         type: "Témoignage / Essai personnel",
         coverImage: "embrasee.png",
         longDescription: `Dans ce récit, l'Autrice nous livre un témoignage poignant sur sa transformation à travers la douleur, après le décès de sa mère. Elle y dévoile ses luttes intérieures, physiques et spirituelles, offrant un message d'espoir à tous ceux qui traversent des épreuves similaires.
 
-L&apos;autrice est portée par la foi chrétienne et la volonté d&apos;élever la voix de celles et ceux qui souffrent en silence.`,
+L'autrice est portée par la foi chrétienne et la volonté d'élever la voix de celles et ceux qui souffrent en silence.`,
         amazonUrl: "#",
     }
 ];
@@ -78,7 +78,7 @@ export default function Works() {
                             <FadeIn delay={0.2}>
                                 <p className="text-xl text-gray-600">
                                     Découvrez les ouvrages de Merveille Grâce LUTETE, des textes qui invitent à la réflexion,
-                                    à la transformation intérieure et à l&apos;élévation spirituelle.
+                                    à la transformation intérieure et à l'élévation spirituelle.
                                 </p>
                             </FadeIn>
                         </div>
@@ -170,31 +170,6 @@ export default function Works() {
                                                             <BookIcon className="w-5 h-5 mr-2" />
                                                             Lire un extrait
                                                         </motion.button>
-
-                                                        {(book.amazonUrl || book.fnacUrl) && (
-                                                            <div className="flex gap-4 mt-4">
-                                                                {book.amazonUrl && (
-                                                                    <a
-                                                                        href={book.amazonUrl}
-                                                                        target="_blank"
-                                                                        rel="noopener noreferrer"
-                                                                        className="flex-1 text-center px-4 py-2 text-gray-600 hover:text-[#d4af37] transition-colors"
-                                                                    >
-                                                                        Voir sur Amazon
-                                                                    </a>
-                                                                )}
-                                                                {book.fnacUrl && (
-                                                                    <a
-                                                                        href={book.fnacUrl}
-                                                                        target="_blank"
-                                                                        rel="noopener noreferrer"
-                                                                        className="flex-1 text-center px-4 py-2 text-gray-600 hover:text-[#d4af37] transition-colors"
-                                                                    >
-                                                                        Voir sur Fnac
-                                                                    </a>
-                                                                )}
-                                                            </div>
-                                                        )}
                                                     </div>
                                                 </div>
                                             </div>
