@@ -19,7 +19,7 @@ export default function About() {
                             </FadeIn>
                             <FadeIn delay={0.2}>
                                 <p className="text-xl text-gray-600">
-                                    Découvrez l&apos;histoire et la mission derrière Guérir & Témoigner Ensemble
+                                    Découvrez l&apos;histoire et la mission derrière Guérir & Témoigner Ensemble.
                                 </p>
                             </FadeIn>
                         </div>
