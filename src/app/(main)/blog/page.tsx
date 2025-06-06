@@ -2,6 +2,7 @@
 
 import AnimatedPage from '@/components/AnimatedPage';
 import FadeIn from '@/components/FadeIn';
+import NewsletterForm from '@/components/NewsletterForm';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/lib/supabase';
 import { motion } from 'framer-motion';
@@ -176,6 +177,19 @@ export default function Blog() {
                                 </p>
                             </div>
                         )}
+                    </div>
+                </section>
+
+                {/* Newsletter */}
+                <section id="newsletter" className="py-16 bg-[#faf7f2]">
+                    <div className="container mx-auto px-4 max-w-2xl text-center">
+                        <FadeIn>
+                            <h2 className="text-3xl font-serif mb-6">Restez informé(e)</h2>
+                            <p className="text-gray-600 mb-8">
+                                Recevez les prochaines publications, articles et événements de Merveille Grâce LUTETE
+                            </p>
+                            <NewsletterForm />
+                        </FadeIn>
                     </div>
                 </section>
             </div>

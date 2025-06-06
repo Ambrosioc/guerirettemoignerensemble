@@ -7,11 +7,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import NewsletterModal from './NewsletterModal';
+import { Button } from './ui/button';
 
 const playfair = Playfair_Display({ subsets: ['latin'] });
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
     const pathname = usePathname();
 
     const isActive = (path: string) => pathname === path;
@@ -106,12 +109,12 @@ export default function Navbar() {
                                 )}
                             </Link>
                         ))}
-                        <Link
-                            href="/newsletter"
+                        <button
+                            onClick={() => setIsNewsletterOpen(true)}
                             className="px-4 py-2 text-sm font-medium text-[#d4af37] border border-[#d4af37] rounded-full hover:bg-[#d4af37] hover:text-white transition-colors"
                         >
                             Newsletter
-                        </Link>
+                        </button>
                     </div>
 
                     {/* Mobile menu button */}
@@ -146,15 +149,23 @@ export default function Navbar() {
                             )}
                         </Link>
                     ))}
-                    <Link
-                        href="/newsletter"
+                    <Button
                         className="block w-full mt-4 px-4 py-2 text-sm font-medium text-[#d4af37] border border-[#d4af37] rounded-full hover:bg-[#d4af37] hover:text-white transition-colors text-center"
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => {
+                            setIsOpen(false);
+                            setIsNewsletterOpen(true);
+                        }}
                     >
                         Newsletter
-                    </Link>
+                    </Button>
                 </div>
             </div>
+
+            {/* Newsletter Modal */}
+            <NewsletterModal
+                isOpen={isNewsletterOpen}
+                onClose={() => setIsNewsletterOpen(false)}
+            />
         </nav>
     );
 } 
