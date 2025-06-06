@@ -1,9 +1,9 @@
 'use client';
 
-import Sidebar from '@/components/admin/Sidebar';
+import Sidebar, { MobileSidebarButton } from '@/components/admin/Sidebar';
 import { useAuth } from '@/hooks/useAuth';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function AdminLayout({
     children,
@@ -14,12 +14,18 @@ export default function AdminLayout({
     const pathname = usePathname();
     const router = useRouter();
     const isLoginPage = pathname === '/admin/login';
+    const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
     useEffect(() => {
         if (!loading && !session && !isLoginPage) {
             router.push('/admin/login');
         }
     }, [session, loading, router, isLoginPage]);
+
+    // Fermer la sidebar mobile quand on change de page
+    useEffect(() => {
+        setIsMobileSidebarOpen(false);
+    }, [pathname]);
 
     if (loading) {
         return (
@@ -36,23 +42,25 @@ export default function AdminLayout({
 
     // Pour toutes les autres pages admin, on affiche la sidebar
     return (
-        <div className="flex h-screen">
-            {/* Sidebar */}
-            <aside className="hidden w-64 flex-shrink-0 lg:block">
-                <Sidebar />
-            </aside>
+        <div className="flex h-screen bg-gray-50">
+            {/* Bouton d'ouverture mobile */}
+            <MobileSidebarButton onClick={() => setIsMobileSidebarOpen(true)} />
 
-            {/* Mobile sidebar - TODO: Add mobile menu button and drawer */}
-            <div className="lg:hidden">
-                {/* We'll add mobile navigation here */}
-            </div>
+            {/* Sidebar */}
+            <Sidebar 
+                isMobileOpen={isMobileSidebarOpen}
+                onMobileClose={() => setIsMobileSidebarOpen(false)}
+            />
 
             {/* Main content */}
-            <main className="flex-1 overflow-y-auto bg-[#faf7f2] px-4 py-8">
+            <main className="flex-1 overflow-y-auto bg-[#faf7f2] px-4 py-8 lg:px-8">
                 <div className="mx-auto max-w-6xl">
-                    {children}
+                    {/* Ajouter un padding-top sur mobile pour éviter que le contenu soit caché par le bouton */}
+                    <div className="pt-16 lg:pt-0">
+                        {children}
+                    </div>
                 </div>
             </main>
         </div>
     );
-} 
+}

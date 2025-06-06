@@ -13,13 +13,28 @@ export default function NewsletterForm() {
         e.preventDefault();
         setStatus('loading');
 
-        // TODO: Implement newsletter subscription
-        // This is a mock implementation
-        setTimeout(() => {
+        try {
+            const response = await fetch('/api/newsletter/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Une erreur est survenue');
+            }
+
             setStatus('success');
             setMessage('Merci pour votre inscription ! Vous recevrez bientôt de nos nouvelles.');
             setEmail('');
-        }, 1000);
+        } catch (error) {
+            setStatus('error');
+            setMessage(error instanceof Error ? error.message : 'Une erreur est survenue');
+        }
     };
 
     return (
@@ -49,4 +64,4 @@ export default function NewsletterForm() {
             )}
         </div>
     );
-} 
+}
