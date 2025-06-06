@@ -1,4 +1,4 @@
-import { sendNewContactMessage } from '@/emails';
+import { sendContactConfirmation, sendNewContactMessage } from '@/emails';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
@@ -22,13 +22,19 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Envoyer l'email de notification
+        // Envoyer l'email de notification à Merveille
         await sendNewContactMessage({
             name,
             email,
             subject,
             message,
             submittedAt: new Date()
+        });
+
+        // Envoyer l'email de confirmation au contact
+        await sendContactConfirmation({
+            name,
+            email
         });
 
         return NextResponse.json({

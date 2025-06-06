@@ -1,11 +1,12 @@
 // Export de tous les modèles d'emails
-export { sendWelcomeNewsletter } from './welcomeNewsletter';
-export { sendOrderConfirmation } from './orderConfirmation';
-export { sendPaymentFailed } from './paymentFailed';
-export { sendNewContactMessage } from './newContactMessage';
+export * from './contactConfirmation';
+export * from './newContactMessage';
+export * from './orderConfirmation';
+export * from './paymentFailed';
+export * from './welcomeNewsletter';
 
 // Export des utilitaires
-export { renderEmailTemplate, generateTextFromHtml } from './render';
+export { generateTextFromHtml, renderEmailTemplate } from './render';
 
 // Export du client Mailjet
 export { sendMail } from '@/lib/mailjet';
