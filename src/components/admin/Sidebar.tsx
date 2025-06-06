@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 
 const navigation = [
     { name: 'Dashboard', href: '/admin', icon: '📊' },
-    { name: 'Articles', href: '/admin/articles', icon: '📝' },
+    { name: 'Articles', href: '/admin/posts', icon: '📝' },
     { name: 'Boutique', href: '/admin/boutique', icon: '🛍️' },
     { name: 'Paiements', href: '/admin/payments', icon: '💳' },
 ];
@@ -40,8 +40,8 @@ export default function Sidebar() {
                                 key={item.name}
                                 href={item.href}
                                 className={`${isActive
-                                        ? 'bg-gray-100 text-gray-900'
-                                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                    ? 'bg-gray-100 text-gray-900'
+                                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                     } group flex items-center px-2 py-2 text-sm font-medium rounded-md`}
                             >
                                 <span className="mr-3">{item.icon}</span>
