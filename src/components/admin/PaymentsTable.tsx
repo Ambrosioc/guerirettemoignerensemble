@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react';
 
 interface Payment {
     id: string;
-    client_full_name: string;
-    email: string;
+    customer_name: string;
+    customer_email: string;
     checkout_reference: string;
     transaction_code: string | null;
     amount: number;
@@ -45,7 +45,7 @@ export default function PaymentsTable() {
             try {
                 const supabase = createClient();
                 const { data, error } = await supabase
-                    .from('payments_with_clients')
+                    .from('payments')
                     .select('*')
                     .order('created_at', { ascending: false });
 
@@ -104,19 +104,20 @@ export default function PaymentsTable() {
                         <tr key={payment.id} className="hover:bg-gray-50">
                             <td className="px-6 py-4 whitespace-nowrap">
                                 <div className="text-sm font-medium text-gray-900">
-                                    {payment.client_full_name}
+                                    {payment.customer_name}
                                 </div>
                                 <div className="text-sm text-gray-500">
-                                    {payment.email}
+                                    {payment.customer_email}
                                 </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                                 <div className="text-sm text-gray-900">
-                                    {payment.checkout_reference}
+                                    {payment.transaction_code}
+
                                 </div>
-                                {payment.transaction_code && (
+                                {payment.checkout_reference && (
                                     <div className="text-sm text-gray-500">
-                                        {payment.transaction_code}
+                                        {payment.checkout_reference}
                                     </div>
                                 )}
                             </td>
