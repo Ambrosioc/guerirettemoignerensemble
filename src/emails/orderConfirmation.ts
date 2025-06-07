@@ -48,12 +48,6 @@ export async function sendOrderConfirmation({
             text
         });
 
-        console.log('✅ Email de confirmation de commande envoyé:', {
-            customerEmail,
-            orderNumber,
-            messageId: result.messageId
-        });
-
         return result;
 
     } catch (error) {

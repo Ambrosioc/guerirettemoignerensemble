@@ -43,14 +43,6 @@ export async function sendNewContactMessage({
             text
         });
 
-        console.log('✅ Email de notification de contact envoyé:', {
-            from: email,
-            name,
-            subject,
-            to: 'merveillegrace-helene@outlook.com',
-            messageId: result.messageId
-        });
-
         return result;
 
     } catch (error) {

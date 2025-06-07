@@ -29,11 +29,6 @@ export async function sendContactConfirmation({
             text
         });
 
-        console.log('✅ Email de confirmation envoyé au contact:', {
-            to: `${name} <${email}>`,
-            messageId: result.messageId
-        });
-
         return result;
 
     } catch (error) {

@@ -39,12 +39,6 @@ export async function sendPaymentFailed({
             text
         });
 
-        console.log('✅ Email d\'échec de paiement envoyé:', {
-            customerEmail,
-            orderNumber,
-            messageId: result.messageId
-        });
-
         return result;
 
     } catch (error) {

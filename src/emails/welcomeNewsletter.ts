@@ -24,11 +24,6 @@ export async function sendWelcomeNewsletter({ email }: WelcomeNewsletterData) {
             text
         });
 
-        console.log('✅ Email de bienvenue newsletter envoyé:', {
-            email,
-            messageId: result.messageId
-        });
-
         return result;
 
     } catch (error) {

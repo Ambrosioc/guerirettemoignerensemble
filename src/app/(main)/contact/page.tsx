@@ -4,7 +4,6 @@ import AnimatedPage from '@/components/AnimatedPage';
 import FadeIn from '@/components/FadeIn';
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Mail, MapPin, Send } from 'lucide-react';
-import Link from 'next/link';
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 
@@ -27,7 +26,7 @@ export default function Contact() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         // Anti-bot : vérifier le honeypot
         if (formData.honeypot) {
             toast.error('Erreur de validation');
@@ -64,7 +63,7 @@ export default function Contact() {
 
             // Succès
             toast.success('Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.');
-            
+
             // Réinitialiser le formulaire
             setFormData({
                 firstName: '',
@@ -180,7 +179,7 @@ export default function Contact() {
                     <div className="container mx-auto px-4">
                         <div className="max-w-2xl mx-auto">
                             <FadeIn delay={0.6}>
-                                <motion.div 
+                                <motion.div
                                     className="bg-white rounded-xl shadow-sm p-8"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -231,7 +230,7 @@ export default function Contact() {
                                                 />
                                             </motion.div>
                                         </div>
-                                        
+
                                         <motion.div whileHover={{ scale: 1.02 }}>
                                             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                                                 Email *
